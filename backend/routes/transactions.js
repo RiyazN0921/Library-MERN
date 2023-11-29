@@ -1,6 +1,8 @@
-import express from "express"
-import Book from "../models/Book.js"
-import BookTransaction from "../models/BookTransaction.js"
+const express = require("express");
+const User = require("../models/User.js");
+
+
+const BookTransaction =  require("../models/BookTransaction.js") 
 
 const router = express.Router()
 
@@ -70,4 +72,4 @@ router.delete("/remove-transaction/:id", async (req, res) => {
     }
 })
 
-export default router
+module.exports =  router

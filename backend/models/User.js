@@ -1,13 +1,12 @@
-import mongoose from "mongoose";
+const mongoose = require('mongoose');
 
 const UserSchema = new mongoose.Schema({
     userType: {
         type: String,
-        require: true
     },
     userFullName: {
         type: String,
-        require: true,
+        
         unique: true
     },
     admissionId: {
@@ -34,8 +33,8 @@ const UserSchema = new mongoose.Schema({
         default: ""
     },
     mobileNumber: {
-        type: Number,
-        require: true
+        type: Number
+        
     },
     photo: {
         type: String,
@@ -43,13 +42,12 @@ const UserSchema = new mongoose.Schema({
     },
     email: {
         type: String,
-        require: true,
+        
         max: 50,
         unique: true
     },
     password: {
         type: String,
-        require: true,
         min: 6
     },
     points: {
@@ -72,5 +70,7 @@ const UserSchema = new mongoose.Schema({
     {
         timestamps: true
     });
+    UserSchema.index({ userFullName: 1, email: 1 }, { unique: true });
 
-export default mongoose.model("User", UserSchema);
+const User = mongoose.model("User", UserSchema);
+module.exports = User

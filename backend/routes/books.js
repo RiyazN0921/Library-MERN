@@ -1,6 +1,7 @@
-import express from "express"
-import Book from "../models/Book.js"
-import BookCategory from "../models/BookCategory.js"
+const express = require("express");
+const User = require("../models/User.js");
+
+const  BookCategory =  require ("../models/BookCategory.js")
 
 const router = express.Router()
 
@@ -100,4 +101,4 @@ router.delete("/removebook/:id", async (req, res) => {
     }
 })
 
-export default router
+module.exports =  router
